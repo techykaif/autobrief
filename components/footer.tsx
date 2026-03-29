@@ -7,7 +7,8 @@ export function Footer() {
   return (
     <footer className="border-t border-border mt-auto bg-muted/30">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
           {/* Brand */}
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
@@ -16,13 +17,13 @@ export function Footer() {
               </div>
               <span className="text-xl font-bold text-foreground">AutoBrief</span>
             </Link>
+
             <p className="text-sm text-muted-foreground max-w-sm">
-              Automated news aggregation and publishing. Stay informed with curated, timely articles across technology,
-              science, finance, and more.
+              Automated news aggregation and publishing. Stay informed with curated, timely articles.
             </p>
           </div>
 
-          {/* Links */}
+          {/* Navigation */}
           <div>
             <h3 className="font-semibold text-foreground mb-4">Navigation</h3>
             <ul className="space-y-2">
@@ -32,73 +33,29 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/categories"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
+                <Link href="/categories" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Categories
-                </Link></li>
+                </Link>
+              </li>
               <li>
-                <Link
-                  href="/status"
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                >
+                <Link href="/status" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Status
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/about"
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                >
+                <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   About
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Categories */}
-          <div>
-            <h3 className="font-semibold text-foreground mb-4">Categories</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/category/technology"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Technology
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/category/science"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Science
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/category/finance"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Finance
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/category/sports"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Sports
-                </Link>
-              </li>
-            </ul>
-          </div>
         </div>
 
-        <div className="border-t border-border mt-8 pt-8 text-center">
-          <p className="text-sm text-muted-foreground">© {currentYear} AutoBrief. All rights reserved.</p>
+        <div className="border-t border-border mt-8 pt-6 text-center">
+          <p className="text-sm text-muted-foreground">
+            © {currentYear} AutoBrief • Built by <span className="font-medium text-foreground">Mohd Kaif Ansari</span>
+          </p>
         </div>
       </div>
     </footer>
