@@ -2,7 +2,7 @@
 
 import { Twitter, Facebook, Linkedin, Link2, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 interface ShareButtonsProps {
   title: string
@@ -10,9 +10,11 @@ interface ShareButtonsProps {
 
 export function ShareButtons({ title }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false)
+  const [fullUrl, setFullUrl] = useState("")
 
-  const fullUrl =
-    typeof window !== "undefined" ? window.location.href : ""
+  useEffect(() => {
+    setFullUrl(window.location.href)
+  }, [])
 
   const shareLinks = {
     twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(fullUrl)}`,
