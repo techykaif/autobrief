@@ -6,20 +6,23 @@ import { useState } from "react"
 
 interface ShareButtonsProps {
   title: string
-  url: string
 }
 
-export function ShareButtons({ title, url }: ShareButtonsProps) {
+export function ShareButtons({ title }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false)
 
+  const fullUrl =
+    typeof window !== "undefined" ? window.location.href : ""
+
   const shareLinks = {
-    twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`,
-    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
-    linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`,
+    twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(fullUrl)}`,
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fullUrl)}`,
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(fullUrl)}`,
   }
 
   const copyLink = async () => {
-    await navigator.clipboard.writeText(url)
+    if (!fullUrl) return
+    await navigator.clipboard.writeText(fullUrl)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
@@ -27,27 +30,35 @@ export function ShareButtons({ title, url }: ShareButtonsProps) {
   return (
     <div className="flex items-center gap-2">
       <span className="text-sm text-muted-foreground">Share:</span>
+
+      {/* Twitter */}
       <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
         <a href={shareLinks.twitter} target="_blank" rel="noopener noreferrer">
           <Twitter className="w-4 h-4" />
-          <span className="sr-only">Share on Twitter</span>
         </a>
       </Button>
+
+      {/* Facebook */}
       <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
         <a href={shareLinks.facebook} target="_blank" rel="noopener noreferrer">
           <Facebook className="w-4 h-4" />
-          <span className="sr-only">Share on Facebook</span>
         </a>
       </Button>
+
+      {/* LinkedIn */}
       <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
         <a href={shareLinks.linkedin} target="_blank" rel="noopener noreferrer">
           <Linkedin className="w-4 h-4" />
-          <span className="sr-only">Share on LinkedIn</span>
         </a>
       </Button>
+
+      {/* Copy */}
       <Button variant="ghost" size="icon" className="h-8 w-8" onClick={copyLink}>
-        {copied ? <Check className="w-4 h-4 text-green-500" /> : <Link2 className="w-4 h-4" />}
-        <span className="sr-only">Copy link</span>
+        {copied ? (
+          <Check className="w-4 h-4 text-green-500" />
+        ) : (
+          <Link2 className="w-4 h-4" />
+        )}
       </Button>
     </div>
   )

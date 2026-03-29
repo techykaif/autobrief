@@ -162,10 +162,7 @@ export default async function NewsPostPage({ params }: PageProps) {
             </header>
 
             <div className="flex justify-end mb-8">
-              <ShareButtons
-                title={post.title}
-                url={`/news/${post.slug}`}
-              />
+              <ShareButtons title={post.title} />
             </div>
 
             <div className="prose prose-lg dark:prose-invert max-w-none mb-12">
