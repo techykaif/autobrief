@@ -29,7 +29,6 @@ export function SearchDialog() {
       return
     }
 
-    // Cancel previous request
     abortRef.current?.abort()
     const controller = new AbortController()
     abortRef.current = controller
@@ -55,7 +54,6 @@ export function SearchDialog() {
     }
   }, [])
 
-  // Debounce input
   useEffect(() => {
     const timer = setTimeout(() => {
       searchPosts(query)
@@ -64,7 +62,6 @@ export function SearchDialog() {
     return () => clearTimeout(timer)
   }, [query, searchPosts])
 
-  // Keyboard shortcut: Cmd/Ctrl + K
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
@@ -77,7 +74,6 @@ export function SearchDialog() {
     return () => document.removeEventListener("keydown", handleKeyDown)
   }, [])
 
-  // Reset when dialog closes
   useEffect(() => {
     if (!open) {
       setQuery("")
@@ -99,35 +95,38 @@ export function SearchDialog() {
       <DialogTrigger asChild>
         <Button
           variant="outline"
-          className="gap-2 text-muted-foreground w-full sm:w-auto justify-start bg-transparent"
+          className="gap-2 text-muted-foreground w-full sm:w-auto justify-start bg-background/50 backdrop-blur-md hover:bg-accent transition-all"
         >
           <Search className="h-4 w-4" />
           <span className="hidden sm:inline">Search articles...</span>
           <span className="sm:hidden">Search</span>
-          <kbd className="hidden md:inline-flex pointer-events-none h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground ml-auto">
-            <span className="text-xs">⌘</span>K
+          <kbd className="hidden md:inline-flex pointer-events-none h-5 items-center gap-1 rounded border bg-muted px-1.5 text-[10px] ml-auto">
+            ⌘ K
           </kbd>
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="sm:max-w-lg p-0 [&>button]:hidden">
-        <DialogHeader className="p-4 pb-0">
+      <DialogContent className="sm:max-w-lg p-0 border bg-background shadow-xl rounded-xl [&>button]:hidden">
+        
+        <DialogHeader className="p-4 pb-2">
           <DialogTitle className="sr-only">Search articles</DialogTitle>
 
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            
             <Input
-              placeholder="Search articles..."
+              placeholder="Search news, topics..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="pl-10 pr-10"
+              className="pl-10 pr-10 h-11 rounded-lg focus:ring-2 focus:ring-primary/40"
               autoFocus
             />
+
             {query && (
               <Button
                 variant="ghost"
                 size="icon"
-                className="absolute right-1 top-1/2 -translate-y-1/2 h-7 w-7"
+                className="absolute right-1 top-1/2 -translate-y-1/2 h-7 w-7 hover:bg-muted"
                 onClick={() => setQuery("")}
               >
                 <X className="h-4 w-4" />
@@ -137,36 +136,44 @@ export function SearchDialog() {
         </DialogHeader>
 
         <div className="max-h-80 overflow-y-auto p-2">
+
           {loading ? (
-            <div className="p-4 text-center text-sm text-muted-foreground">
-              Searching...
+            <div className="p-4 text-center text-sm text-muted-foreground animate-pulse">
+              Searching articles...
             </div>
+
           ) : results.length > 0 ? (
+
             <div className="space-y-1">
               {results.map((post) => (
                 <button
                   key={`${post.id}-${post.slug}`}
                   onClick={() => handleSelect(post.slug)}
-                  className="w-full text-left p-3 rounded-md hover:bg-accent transition-colors"
+                  className="w-full text-left p-3 rounded-lg transition-all hover:bg-accent hover:shadow-sm active:scale-[0.98]"
                 >
                   <span className="text-xs font-medium text-primary">
                     {post.category}
                   </span>
-                  <p className="font-medium text-sm line-clamp-1">
+
+                  <p className="font-medium text-sm line-clamp-1 mt-1">
                     {post.title}
                   </p>
                 </button>
               ))}
-
             </div>
+
           ) : query ? (
-            <div className="p-4 text-center text-sm text-muted-foreground">
+
+            <div className="p-6 text-center text-sm text-muted-foreground">
               No results found
             </div>
+
           ) : (
-            <div className="p-4 text-center text-sm text-muted-foreground">
+
+            <div className="p-6 text-center text-sm text-muted-foreground">
               Start typing to search articles
             </div>
+
           )}
         </div>
       </DialogContent>

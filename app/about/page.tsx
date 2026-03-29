@@ -5,56 +5,18 @@ const SITE_URL = "https://autobrief-ai.netlify.app"
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-
   title: "About AutoBrief | Automated News Platform",
   description:
-    "Learn about AutoBrief — a fully automated news platform engineered to ingest, process, and publish structured, meaningful content with clarity and reliability.",
-
-  alternates: {
-    canonical: "/about", // ✅ best practice with metadataBase
-  },
-
-  robots: {
-    index: true,
-    follow: true,
-  },
-
-  openGraph: {
-    title: "About AutoBrief | Automated News Platform",
-    description:
-      "Discover the mission, philosophy, and engineering principles behind AutoBrief — a modern automated news system.",
-    url: "/about",
-    siteName: "AutoBrief",
-    type: "website",
-    images: [
-      {
-        url: "/og-image.png", // 👉 create later (recommended)
-        width: 1200,
-        height: 630,
-        alt: "AutoBrief - Automated News Platform",
-      },
-    ],
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "About AutoBrief | Automated News Platform",
-    description:
-      "Engineering automated systems that transform raw information into structured, readable news.",
-    images: ["/og-image.png"],
-  },
+    "Learn about AutoBrief — a fully automated news platform engineered to ingest, process, and publish structured, meaningful content.",
+  alternates: { canonical: "/about" },
+  robots: { index: true, follow: true },
 }
-
-/* -------------------- */
-/* Structured Data */
-/* -------------------- */
 
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "AutoBrief",
   url: SITE_URL,
-  logo: `${SITE_URL}/icon.svg`, // Optional but recommended
   founder: {
     "@type": "Person",
     name: "Mohd Kaif Ansari",
@@ -65,7 +27,6 @@ const organizationSchema = {
 export default function AboutPage() {
   return (
     <>
-      {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -73,82 +34,106 @@ export default function AboutPage() {
         }}
       />
 
-      <div className="w-full bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-500">
+      <main className="min-h-screen bg-background text-foreground">
+        
+        {/* CONTAINER */}
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* HERO */}
-        <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-24">
-          <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
-            <div className="inline-block px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800/50">
-              <span className="text-sm font-semibold text-blue-700 dark:text-blue-300">
-                Automated News Platform
-              </span>
+          {/* HERO */}
+          <section className="pt-20 pb-16 text-center space-y-6">
+            
+            <div className="inline-flex items-center px-3 py-1 rounded-full border border-border bg-muted text-xs text-muted-foreground">
+              Automated News Platform
             </div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight">
-              <span className="block mb-4">About</span>
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                AutoBrief
-              </span>
+            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
+              About AutoBrief
             </h1>
 
-            <p className="text-xl sm:text-2xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              A fully automated news platform built to ingest, process, and publish meaningful content with clarity, reliability, and scale.
+            <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+              AutoBrief is a fully automated news platform designed to ingest,
+              process, and present structured content in a clean and readable format.
             </p>
 
-            <a
-              href="#foundation"
-              className="inline-block px-8 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-all duration-300 hover:scale-105"
-            >
-              Explore Features
-            </a>
-          </div>
-        </section>
-
-        {/* FOUNDATION */}
-        <section id="foundation" className="py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-          <div className="text-center space-y-4 mb-16">
-            <h2 className="text-4xl sm:text-5xl font-black">Our Foundation</h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-              Built on principles of automation, clarity, and trustworthy systems
+            <p className="text-sm text-muted-foreground">
+              Built by{" "}
+              <span className="font-semibold text-foreground">
+                Mohd Kaif Ansari
+              </span>
             </p>
-          </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="p-8 rounded-2xl border border-slate-200 dark:border-slate-700/50 bg-gradient-to-br from-slate-50 dark:from-slate-900/50 to-white dark:to-slate-950">
-              <div className="text-5xl mb-4">🚀</div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-4">Mission</h3>
-              <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                To reduce noise and manual effort by building systems that transform raw information into structured, readable news — automatically.
+          </section>
+
+          {/* DIVIDER */}
+          <div className="h-px bg-border my-6" />
+
+          {/* FOUNDATION */}
+          <section className="py-12">
+
+            <div className="text-center mb-10">
+              <h2 className="text-2xl sm:text-3xl font-semibold mb-2">
+                Core Principles
+              </h2>
+              <p className="text-muted-foreground text-sm">
+                Built on clarity, automation, and reliability
               </p>
             </div>
 
-            <div className="p-8 rounded-2xl border border-slate-200 dark:border-slate-700/50 bg-gradient-to-br from-slate-50 dark:from-slate-900/50 to-white dark:to-slate-950">
-              <div className="text-5xl mb-4">🧠</div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-4">Philosophy</h3>
-              <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                AutoBrief is built with a deep-understanding-first mindset. No shortcuts, no magic — just systems that can be reasoned about and trusted.
-              </p>
+            <div className="grid md:grid-cols-2 gap-6">
+
+              {/* CARD 1 */}
+              <div className="p-6 border border-border rounded-xl bg-card hover:shadow-md transition-all duration-300">
+                <div className="text-2xl mb-3">🚀</div>
+                <h3 className="text-lg font-semibold mb-2">Mission</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  To reduce noise and manual effort by building systems that
+                  transform raw information into structured, readable news —
+                  automatically.
+                </p>
+              </div>
+
+              {/* CARD 2 */}
+              <div className="p-6 border border-border rounded-xl bg-card hover:shadow-md transition-all duration-300">
+                <div className="text-2xl mb-3">🧠</div>
+                <h3 className="text-lg font-semibold mb-2">Philosophy</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Built with a system-first mindset — focusing on clarity,
+                  predictability, and long-term maintainability.
+                </p>
+              </div>
+
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* CTA */}
-        <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-4xl sm:text-5xl font-black text-white">
-              Experience Automated News. The Right Way.
-            </h2>
+          {/* DIVIDER */}
+          <div className="h-px bg-border my-6" />
 
-            <Link
-              href="/"
-              className="inline-block px-8 py-4 rounded-lg bg-white text-blue-600 font-bold hover:bg-blue-50 transition-all duration-300 hover:scale-105"
-            >
-              Get Started
-            </Link>
-          </div>
-        </section>
+          {/* CTA */}
+          <section className="py-16 text-center">
 
-      </div>
+            <div className="p-8 border border-border rounded-2xl bg-card shadow-sm space-y-5">
+
+              <h2 className="text-2xl sm:text-3xl font-semibold">
+                Explore the Platform
+              </h2>
+
+              <p className="text-muted-foreground text-sm">
+                Experience how automated systems simplify news consumption.
+              </p>
+
+              <Link
+                href="/"
+                className="inline-block px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition"
+              >
+                Go to Homepage
+              </Link>
+
+            </div>
+
+          </section>
+
+        </div>
+      </main>
     </>
   )
 }
