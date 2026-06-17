@@ -94,33 +94,61 @@ async function fetchSheetData(range: string): Promise<any[][]> {
    ROW → POST
    ========================= */
 function rowToPost(row: any[]): NewsPost {
-  const status = String(row[13]).toUpperCase()
+  const status = String(row[13] || "").toUpperCase()
 
   const titleBase = String(row[2] || "").trim()
+  const slugBase = String(row[3] || "").trim()
   const contentBase = String(row[4] || "").trim()
 
   const aiTitle = String(row[16] || "").trim()
   const aiContent = String(row[15] || "").trim()
 
-  const finalTitle =
-    status === "LIVE" && aiTitle ? aiTitle : titleBase
+  function isValidAiOutput(value: string) {
+    if (!value) return false
 
-  const finalContent =
-    status === "LIVE" && aiContent ? aiContent : contentBase
+    const lower = value.toLowerCase()
+
+    return (
+      !value.startsWith("=") &&
+      !lower.includes("=ai(") &&
+      !lower.includes("write a short, clear") &&
+      !lower.includes("write a clear and well-structured") &&
+      !lower.includes("summarize the following news")
+    )
+  }
+
+  const finalTitle = isValidAiOutput(aiTitle)
+    ? aiTitle
+    : titleBase
+
+  const finalContent = isValidAiOutput(aiContent)
+    ? aiContent
+    : contentBase
 
   return {
-    id: row[0],
+    id: String(row[0] || ""),
     title: finalTitle,
-    slug: finalTitle
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-|-$/g, ""),
+
+    // Use canonical slug from sheet
+    slug:
+      slugBase ||
+      finalTitle
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, ""),
+
     content: finalContent,
+
     category: String(row[6] || "").trim(),
-    publishedAt: row[8] || new Date().toISOString(),
-    author: row[7],
+
+    publishedAt:
+      row[8] || new Date().toISOString(),
+
+    author: String(row[7] || "").trim(),
+
     isFeatured:
-      row[10] === true || String(row[10]).toUpperCase() === "TRUE",
+      row[10] === true ||
+      String(row[10]).toUpperCase() === "TRUE",
   }
 }
 
