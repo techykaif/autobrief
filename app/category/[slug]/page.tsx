@@ -7,7 +7,7 @@ import {
   getCategories,
 } from "@/lib/data-source"
 
-export const revalidate = 60
+export const revalidate = false
 
 interface PageProps {
   params: Promise<{ slug: string }>

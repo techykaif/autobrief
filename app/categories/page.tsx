@@ -6,7 +6,7 @@ import { Card, CardHeader, CardTitle } from "@/components/ui/card"
 import { Folder } from "lucide-react"
 import { getCategories } from "@/lib/data-source"
 
-export const revalidate = 60
+export const revalidate = false
 
 export const metadata: Metadata = {
   title: "Categories | AutoBrief",

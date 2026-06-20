@@ -3,7 +3,7 @@ import { FeaturedSection } from "@/components/featured-section"
 import { CategoryFilter } from "@/components/category-filter"
 import { getPublishedPosts, getCategories, getFeaturedPosts } from "@/lib/data-source"
 
-export const revalidate = 60
+export const revalidate = false
 
 export default async function HomePage() {
   const PAGE = 1
