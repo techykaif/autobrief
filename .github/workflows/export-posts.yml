@@ -1,0 +1,69 @@
+name: Export Posts & Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      articles_count:
+        description: "Number of articles processed"
+        required: false
+        default: "0"
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: main
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Export posts to JSON
+        env:
+          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+          GOOGLE_SERVICE_ACCOUNT_EMAIL: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_EMAIL }}
+          GOOGLE_PRIVATE_KEY: ${{ secrets.GOOGLE_PRIVATE_KEY }}
+        run: npx tsx scripts/export/export-posts.ts
+
+      - name: Checkout data branch
+        run: |
+          git fetch origin data || true
+          if git show-ref --verify --quiet refs/remotes/origin/data; then
+            git checkout data
+          else
+            git checkout --orphan data
+            git rm -rf . --quiet 2>/dev/null || true
+            mkdir -p data
+          fi
+
+      - name: Copy posts.json to data branch
+        run: |
+          git checkout main -- data/posts.json
+
+      - name: Commit and force push to data branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/posts.json
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          ARTICLE_COUNT="${{ github.event.inputs.articles_count }}"
+          git commit -m "chore: export posts.json (+${ARTICLE_COUNT} articles) [$(date -u '+%Y-%m-%dT%H:%M:%SZ')]"
+          git push origin data --force
+
+      - name: Trigger Netlify rebuild
+        if: env.NETLIFY_BUILD_HOOK != ''
+        env:
+          NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
+        run: |
+          echo "🚀 Triggering Netlify rebuild..."
+          curl -s -X POST "$NETLIFY_BUILD_HOOK"
+          echo "✅ Netlify rebuild triggered"
