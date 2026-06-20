@@ -1,20 +1,52 @@
 // lib/data-source.ts
-// Swap DATA_PROVIDER env var to switch data source
-// Default is "static" (reads from data/posts.json — zero Sheets calls at runtime)
-// Set DATA_PROVIDER=sheets to fall back to live Google Sheets (dev/debug only)
-
-import * as staticData from "./static-data"
-import * as sheets from "./google-sheets"
+// Uses lazy imports so google-sheets.ts is NEVER loaded when provider === "static"
+// This prevents any Sheets API calls at runtime on the deployed site
 
 const provider = process.env.DATA_PROVIDER || "static"
 
-const service = provider === "sheets" ? sheets : staticData
+async function getService() {
+  if (provider === "sheets") {
+    return await import("./google-sheets")
+  }
+  return await import("./static-data")
+}
 
-export const getPublishedPosts = service.getPublishedPosts
-export const getPostBySlug = service.getPostBySlug
-export const getPostsByCategory = service.getPostsByCategory
-export const getCategories = service.getCategories
-export const getFeaturedPosts = service.getFeaturedPosts
-export const getBreakingNews = service.getBreakingNews
-export const searchPosts = service.searchPosts
-export const getAllPosts = service.getAllPosts
+export async function getPublishedPosts(page?: number, limit?: number) {
+  const s = await getService()
+  return s.getPublishedPosts(page, limit)
+}
+
+export async function getPostBySlug(slug: string) {
+  const s = await getService()
+  return s.getPostBySlug(slug)
+}
+
+export async function getPostsByCategory(categorySlug: string) {
+  const s = await getService()
+  return s.getPostsByCategory(categorySlug)
+}
+
+export async function getCategories() {
+  const s = await getService()
+  return s.getCategories()
+}
+
+export async function getFeaturedPosts() {
+  const s = await getService()
+  return s.getFeaturedPosts()
+}
+
+export async function getBreakingNews() {
+  const s = await getService()
+  return s.getBreakingNews()
+}
+
+export async function searchPosts(query: string) {
+  const s = await getService()
+  return s.searchPosts(query)
+}
+
+export async function getAllPosts() {
+  const s = await getService()
+  return s.getAllPosts()
+}
