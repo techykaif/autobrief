@@ -31,69 +31,58 @@ export function ShareButtons({ title }: ShareButtonsProps) {
 
   return (
     <div className="flex items-center gap-3">
+      <span className="text-sm text-muted-foreground font-medium">Share:</span>
 
-      <span className="text-sm text-muted-foreground font-medium">
-        Share:
-      </span>
-
-      {/* Icons */}
       <div className="flex items-center gap-2">
-
-        {/* Twitter */}
         <Button
           variant="ghost"
           size="icon"
           className="h-9 w-9 rounded-full transition-all hover:scale-110 hover:bg-blue-500/10"
           asChild
         >
-          <a href={shareLinks.twitter} target="_blank">
+          <a href={shareLinks.twitter} target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter">
             <Twitter className="w-4 h-4 text-blue-500" />
           </a>
         </Button>
 
-        {/* Facebook */}
         <Button
           variant="ghost"
           size="icon"
           className="h-9 w-9 rounded-full transition-all hover:scale-110 hover:bg-blue-600/10"
           asChild
         >
-          <a href={shareLinks.facebook} target="_blank">
+          <a href={shareLinks.facebook} target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook">
             <Facebook className="w-4 h-4 text-blue-600" />
           </a>
         </Button>
 
-        {/* LinkedIn */}
         <Button
           variant="ghost"
           size="icon"
           className="h-9 w-9 rounded-full transition-all hover:scale-110 hover:bg-sky-600/10"
           asChild
         >
-          <a href={shareLinks.linkedin} target="_blank">
+          <a href={shareLinks.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">
             <Linkedin className="w-4 h-4 text-sky-600" />
           </a>
         </Button>
 
-        {/* Copy */}
         <Button
           variant="ghost"
           size="icon"
           onClick={copyLink}
-          className="relative h-9 w-9 rounded-full transition-all hover:scale-110 hover:bg-green-500/10"
+          className="relative group h-9 w-9 rounded-full transition-all hover:scale-110 hover:bg-green-500/10"
+          aria-label="Copy link"
         >
           {copied ? (
             <Check className="w-4 h-4 text-green-500" />
           ) : (
             <Link2 className="w-4 h-4" />
           )}
-
-          {/* Tooltip */}
-          <span className="absolute -bottom-8 text-xs bg-black text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">
+          <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs bg-popover text-popover-foreground px-2 py-1 rounded shadow opacity-0 group-hover:opacity-100 transition whitespace-nowrap pointer-events-none">
             {copied ? "Copied!" : "Copy link"}
           </span>
         </Button>
-
       </div>
     </div>
   )

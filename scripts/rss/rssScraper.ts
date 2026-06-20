@@ -1,13 +1,65 @@
+// scripts/rss/rssScraper.ts
+// Reads enabled sources from SOURCES sheet
+// Run insertSources.ts first to populate the sheet
+
 import "dotenv/config"
 import Parser from "rss-parser"
 import { getWriteAccessToken } from "../googleSheets"
 
-const parser = new Parser()
+const parser = new Parser({
+  timeout: 10000,
+  headers: {
+    "User-Agent": "AutoBrief RSS Reader/1.0 (https://autobrief-ai.netlify.app)",
+  },
+})
+
 const SHEET_ID = process.env.GOOGLE_SHEET_ID!
 
 if (!SHEET_ID) {
-  console.error("Missing GOOGLE_SHEET_ID")
+  console.error("❌ Missing GOOGLE_SHEET_ID")
   process.exit(1)
+}
+
+/* =========================
+   SHEETS HELPERS
+   ========================= */
+
+async function fetchSheet(range: string): Promise<any[][]> {
+  const token = await getWriteAccessToken()
+
+  const res = await fetch(
+    `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${encodeURIComponent(range)}`,
+    { headers: { Authorization: `Bearer ${token}` } }
+  )
+
+  if (!res.ok) throw new Error(await res.text())
+  const data = await res.json()
+  return data.values || []
+}
+
+async function appendRows(rows: any[][]): Promise<number> {
+  if (!rows.length) return 0
+
+  const token = await getWriteAccessToken()
+
+  const res = await fetch(
+    `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/RAW_NEWS!A:H:append?valueInputOption=USER_ENTERED`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ values: rows }),
+    }
+  )
+
+  if (!res.ok) {
+    console.error("Failed to append rows:", await res.text())
+    return 0
+  }
+
+  return rows.length
 }
 
 /* =========================
@@ -25,109 +77,88 @@ function generateNextId(lastId?: string) {
     return `${today}-001`
   }
 
-  const lastSerial = parseInt(lastId.split("-")[1], 10)
+  const parts = lastId.split("-")
+  const lastSerial = parseInt(parts[parts.length - 1], 10)
   return `${today}-${String(lastSerial + 1).padStart(3, "0")}`
 }
 
 /* =========================
-   SHEETS
+   CONTENT CLEANER
    ========================= */
 
-async function fetchSheet(range: string): Promise<any[][]> {
-  const token = await getWriteAccessToken()
-
-  const res = await fetch(
-    `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${encodeURIComponent(range)}`,
-    { headers: { Authorization: `Bearer ${token}` } }
-  )
-
-  if (!res.ok) throw new Error(await res.text())
-  const data = await res.json()
-  return data.values || []
-}
-
-async function appendRows(rows: any[][]) {
-  const cleanRows = rows.filter(
-    r =>
-      typeof r[2] === "string" &&
-      r[2].trim().length >= 5 &&
-      typeof r[3] === "string" &&
-      r[3].startsWith("http")
-  )
-
-  if (!cleanRows.length) return
-
-  const token = await getWriteAccessToken()
-
-  const res = await fetch(
-    `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/RAW_NEWS!A:H:append?valueInputOption=USER_ENTERED`,
-    {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ values: cleanRows }),
-    }
-  )
-
-  if (!res.ok) {
-    console.error("Failed to append rows:", await res.text())
-    return
-  }
-
-  console.log(`Inserted ${cleanRows.length} new rows`)
+function cleanContent(raw: string): string {
+  return raw
+    .replace(/<[^>]+>/g, "")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&nbsp;/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
 }
 
 /* =========================
-   MAIN
+   MAIN SCRAPER
    ========================= */
 
 export async function runRssScraper() {
-  const sources = await fetchSheet("SOURCES!A2:E")
+  console.log("🚀 Starting RSS scraper...")
 
+  // Load enabled sources from SOURCES sheet
+  // Columns: source_id, source_name, rss_url, category, enabled, last_fetched
+  const sourceRows = await fetchSheet("SOURCES!A2:F")
+  const enabledSources = sourceRows
+    .filter(r => String(r[4] || "").trim().toUpperCase() === "TRUE")
+    .map(r => ({
+      name: String(r[1] || "").trim(),
+      url: String(r[2] || "").trim(),
+      category: String(r[3] || "").trim(),
+    }))
+    .filter(s => s.name && s.url.startsWith("http"))
+
+  console.log(`📡 Scraping ${enabledSources.length} enabled sources...`)
+
+  // Load existing URLs to prevent duplicates
   const existingUrls = new Set(
     (await fetchSheet("RAW_NEWS!D2:D"))
       .flat()
       .map(v => String(v).trim())
   )
 
+  // Get last ID for sequential generation
   const idRows = await fetchSheet("RAW_NEWS!A2:A")
-  let lastId =
-    idRows.length > 0
-      ? String(idRows[idRows.length - 1][0]).trim()
-      : undefined
+  let lastId = idRows.length > 0
+    ? String(idRows[idRows.length - 1][0]).trim()
+    : undefined
 
   const rowsToInsert: any[][] = []
+  const failedSources: string[] = []
 
-  for (const row of sources) {
-    const [_, sourceName, rssUrl, category, enabled] = row.map(v =>
-      String(v || "").trim()
-    )
-
-    if (enabled.toUpperCase() !== "TRUE") continue
-
+  for (const source of enabledSources) {
     try {
-      const feed = await parser.parseURL(rssUrl)
+      console.log(`  📰 Fetching: ${source.name}`)
+      const feed = await parser.parseURL(source.url)
 
-      for (const item of feed.items.slice(0, 5)) {
-        const title =
-          typeof item.title === "string"
-            ? item.title.trim()
-            : ""
+      let inserted = 0
 
-        const link =
-          typeof item.link === "string"
-            ? item.link.trim()
-            : ""
+      for (const item of feed.items.slice(0, 8)) {
+        const title = typeof item.title === "string" ? item.title.trim() : ""
+        const link = typeof item.link === "string" ? item.link.trim() : ""
 
-        const content =
-          typeof item.contentSnippet === "string"
-            ? item.contentSnippet.trim()
-            : ""
+        const rawContent =
+          item.content ||
+          item.contentSnippet ||
+          item.summary ||
+          ""
 
-        if (title.length < 5) continue
+        const content = cleanContent(String(rawContent))
+
+        // Quality filters
+        if (title.length < 10) continue
         if (!link.startsWith("http")) continue
+        if (content.length < 30) continue
         if (existingUrls.has(link)) continue
 
         const newId = generateNextId(lastId)
@@ -135,23 +166,44 @@ export async function runRssScraper() {
 
         rowsToInsert.push([
           newId,
-          sourceName,
+          source.name,
           title,
           link,
           content,
-          category,
+          source.category,
           new Date().toISOString(),
           "NEW",
         ])
 
         existingUrls.add(link)
+        inserted++
       }
-    } catch (err) {
-      console.error(`RSS fetch failed for ${sourceName}`)
+
+      if (inserted > 0) {
+        console.log(`    ✅ ${inserted} new articles from ${source.name}`)
+      } else {
+        console.log(`    ⏭️  No new articles from ${source.name}`)
+      }
+
+    } catch (err: any) {
+      console.error(`    ❌ Failed: ${source.name} — ${err.message}`)
+      failedSources.push(source.name)
     }
   }
 
-  await appendRows(rowsToInsert)
+  // Batch insert
+  if (rowsToInsert.length > 0) {
+    await appendRows(rowsToInsert)
+    console.log(`\n✅ Inserted ${rowsToInsert.length} new articles into RAW_NEWS`)
+  } else {
+    console.log("\n📭 No new articles found this run")
+  }
+
+  if (failedSources.length > 0) {
+    console.log(`\n⚠️  Failed sources (${failedSources.length}): ${failedSources.join(", ")}`)
+  }
+
+  console.log("🎉 Scraper complete.")
 }
 
 runRssScraper()
