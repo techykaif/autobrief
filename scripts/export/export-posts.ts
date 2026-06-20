@@ -100,7 +100,7 @@ async function exportPosts() {
       const isPublished =
         row[9] === true || String(row[9]).toUpperCase() === "TRUE"
       const status = String(row[13] || "").toUpperCase()
-      return isPublished && (status === "LIVE" || status === "READY")
+      return isPublished && status === "LIVE"
     })
     .map(rowToPost)
     .sort(
