@@ -44,11 +44,11 @@ jobs:
           git commit -m "data: update posts.json (+${ARTICLE_COUNT} articles) [$(date -u '+%Y-%m-%dT%H:%M:%SZ')]"
           git push origin main
 
-      - name: Trigger Netlify rebuild
-        if: env.NETLIFY_BUILD_HOOK != ''
+      - name: Trigger Vercel rebuild
+        if: env.VERCEL_DEPLOY_HOOK != ''
         env:
-          NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
+          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
         run: |
-          echo "🚀 Triggering Netlify rebuild..."
-          curl -s -X POST "$NETLIFY_BUILD_HOOK"
-          echo "✅ Netlify rebuild triggered"
+          echo "🚀 Triggering Vercel rebuild..."
+          curl -s -X POST "$VERCEL_DEPLOY_HOOK"
+          echo "✅ Vercel rebuild triggered"
