@@ -1,5 +1,16 @@
 [
   {
+    "id": "BLOG-20260623-651",
+    "title": "SpaceX launches Starfall return capsule on maiden flight",
+    "slug": "spacex-launches-starfall-return-capsule-on-maiden-flight",
+    "content": "SpaceX has successfully launched its Starfall return capsule for the first time, marking a new milestone in the company’s efforts to develop reusable spacecraft. The capsule, designed to be carried aboard Starship, is intended to bring small payloads back to Earth from low‑Earth orbit. By testing the capsule’s heat‑shield performance and landing systems, SpaceX aims to prove that a lightweight, cost‑effective return vehicle can be integrated into its broader Starship program.\n\nThe company plans to use Starfall to recover scientific experiments, technology demonstrators, and other small cargo that would otherwise be discarded after a mission. In addition, the data gathered from this flight will inform the design of future reusable components for Starship, potentially lowering launch costs and expanding the range of missions that can be supported, from commercial satellite servicing to lunar and Martian exploration. The successful landing of Starfall is expected to validate key technologies that will be critical for the next generation of reusable spacecraft.\n\nWith Starfall’s first flight complete, SpaceX is moving closer to a fully reusable launch system that can deliver payloads to orbit and return them safely at a fraction of current costs. The company’s continued testing of the capsule will help refine its reusability strategy and support its long‑term goal of making space access more economical and reliable.",
+    "category": "Space",
+    "categorySlug": "space",
+    "publishedAt": "6/24/2026 3:31:37",
+    "author": "Space.com",
+    "isFeatured": false
+  },
+  {
     "id": "BLOG-20260623-650",
     "title": "Scotland's Steve Clarke Warns of Neymar Threat in World Cup Clash",
     "slug": "scotland-s-steve-clarke-warns-of-neymar-threat-in-world-cup-clash",
