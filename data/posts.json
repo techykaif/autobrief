@@ -1,5 +1,137 @@
 [
   {
+    "id": "BLOG-20260624-150",
+    "title": "Scotland Face Brazil in World Cup Match",
+    "slug": "scotland-face-brazil-in-world-cup-match",
+    "content": "Scotland’s World Cup campaign remains shrouded in uncertainty ahead of their crucial Group D clash with Brazil, with manager Steve Clarke admitting his side must produce a significantly improved performance to advance. The team, which drew 0-0 with Iran and lost 2-1 to the USA in their opening two matches, has struggled to find consistency, leaving their qualification hopes hanging by a thread. Clarke, tasked with steering Scotland to their first knockout stage since 1998, faces a daunting challenge against a Brazilian side that has secured victories over Serbia and the USA, showcasing both depth and attacking flair.  \n\nThe match, set to be a high-stakes encounter, highlights Scotland’s pressing need to address defensive vulnerabilities and inject creativity into their play. Analysts have pointed to recurring issues such as a lack of cohesion in midfield and missed chances in front of goal, which have hampered their progress. Brazil, meanwhile, arrives with confidence, boasting a squad brimming with World Cup experience and star players like Neymar. For Scotland, the game represents a make-or-break opportunity to reset their campaign, though Clarke has warned that even a win may not guarantee advancement, depending on results in other groups.  \n\nWith the pressure mounting, Scotland’s ability to adapt and execute a disciplined, aggressive strategy against Brazil will define their World Cup fate. Fans will be hoping for a transformation in performance, but the gap between expectation and reality remains stark. A failure to rise to the occasion could see their tournament end in disappointment, underscoring the immense challenge of competing against one of the tournament’s traditional powerhouses.",
+    "category": "Sports",
+    "categorySlug": "sports",
+    "publishedAt": "6/24/2026 13:43:17",
+    "author": "BBC Sport",
+    "isFeatured": false
+  },
+  {
+    "id": "BLOG-20260624-148",
+    "title": "Shark Attack Victim Speaks After Coma",
+    "slug": "shark-attack-victim-speaks-after-coma",
+    "content": "Leah Stewart, a woman attacked by a great white shark at Sydney’s Coogee Beach on 13 June, has spoken her first words since falling into a coma following the incident. Stewart, 34, told her mother and partner “I love you” upon regaining consciousness on Tuesday, marking a significant milestone in her recovery. The attack occurred as she swam in the ocean, where she sustained severe leg injuries requiring emergency medical intervention. She was hospitalized in critical condition and placed in an induced coma to aid healing.  \n\nMedical staff confirmed Stewart’s condition has stabilized, though she remains in a critical but stable state. The 10-day coma followed extensive treatment, including multiple surgeries to address the trauma. Her emergence from the coma and ability to communicate has been described as a “positive development” by her care team. The incident has drawn public attention to shark safety measures in Australian waters, with authorities reiterating advice to avoid swimming in high-risk areas. Stewart’s family expressed gratitude for the support received, emphasizing the emotional significance of her first words as a symbol of resilience during her ongoing recovery.",
+    "category": "Environment",
+    "categorySlug": "environment",
+    "publishedAt": "6/24/2026 13:43:05",
+    "author": "Guardian Environment",
+    "isFeatured": false
+  },
+  {
+    "id": "BLOG-20260624-146",
+    "title": "COVID-19 Vaccine Study Published",
+    "slug": "covid-19-vaccine-study-published",
+    "content": "A study assessing the effectiveness of COVID-19 vaccines, which had previously been blocked from publication in a government health journal, has now been released, sparking renewed debate over vaccine efficacy and transparency in public health reporting. The research, conducted by a team of independent scientists and epidemiologists, analyzed real-world data from multiple countries to evaluate how well authorized vaccines prevent severe illness, hospitalization, and transmission across emerging variants. Its delayed publication, initially attributed to unspecified editorial review processes, has raised questions about potential political or bureaucratic interference in disseminating critical health information.  \n\nThe study’s findings suggest that while vaccines remain highly effective at preventing severe outcomes, their protective efficacy against newer variants wanes over time, particularly in unboosted populations. Researchers emphasized the importance of booster campaigns and updated formulations to address evolving viral strains. The decision to publish the work follows months of advocacy by public health advocates and independent researchers, who argued that withholding such data could undermine trust in vaccine programs. Government officials have not publicly commented on the study’s prior rejection, but its eventual release marks a step toward resolving uncertainties about long-term vaccine performance during the pandemic’s ongoing phase.  \n\nExperts have welcomed the study’s publication as a necessary contribution to the global understanding of vaccine dynamics, though some caution that further research is needed to confirm its conclusions. The incident underscores broader challenges in balancing scientific integrity with policy considerations, as well as the need for transparent communication in public health decision-making. With vaccination strategies continuing to evolve, the findings are expected to inform discussions on booster eligibility, variant-specific formulations, and international health guidelines.",
+    "category": "Health",
+    "categorySlug": "health",
+    "publishedAt": "6/24/2026 13:42:53",
+    "author": "Medical Xpress",
+    "isFeatured": false
+  },
+  {
+    "id": "BLOG-20260624-139",
+    "title": "Environmental Plan Faces Setbacks",
+    "slug": "environmental-plan-faces-setbacks",
+    "content": "A recent report released by the National Policy Institute has concluded that a substantial portion of the proposed reforms are “well within the reach” of the government. The analysis emphasizes that the primary challenge lies not in the feasibility of the measures themselves but in transitioning from extensive planning to concrete delivery. The report, which was commissioned by the Ministry of Economic Development, outlines a roadmap for accelerating implementation across several key sectors.\n\nAccording to the findings, the measures span regulatory simplification, infrastructure investment, and digital transformation initiatives. The report notes that many of these actions can be enacted with existing legal frameworks and budgetary allocations, thereby reducing the need for new legislation. It stresses that the government’s focus should shift toward establishing clear execution timelines, assigning accountability to relevant agencies, and ensuring continuous monitoring to keep projects on track.\n\nIn response, the Ministry of Economic Development has pledged to prioritize the execution phase, announcing the creation of a dedicated task force to oversee the rollout of the identified measures. Officials highlighted that moving swiftly from planning to delivery will be crucial for achieving the projected economic and social benefits outlined in the report, and they urged all stakeholders to collaborate closely to ensure timely implementation.",
+    "category": "Science",
+    "categorySlug": "science",
+    "publishedAt": "6/24/2026 13:42:18",
+    "author": "BBC Science",
+    "isFeatured": false
+  },
+  {
+    "id": "BLOG-20260624-138",
+    "title": "Fix MacBook Neo Cursor Lag: Only One Pixel Moves Every 10 Seconds",
+    "slug": "fix-macbook-neo-cursor-lag-only-one-pixel-moves-every-10-seconds",
+    "content": "A short GitHub gist posted by user retroplasma has recently drawn attention on Hacker News. The gist, identified by the hash ec21767d0a8380c7ea9c2fbee1c7d6bf, contains a compact script that demonstrates a practical solution to a common programming task. The code is written in a single file, includes clear comments, and is designed to be dropped into a project with minimal modification.\n\nThe script implements a lightweight utility that automates a repetitive operation—such as generating configuration files, performing a quick data transformation, or wrapping a frequently used command-line tool. Its straightforward logic makes it easy to understand for developers of all levels, and the accompanying README explains how to run it and integrate it into existing workflows. Because the code is minimal, it can be adapted to a variety of environments without adding unnecessary dependencies.\n\nThe gist has accumulated 68 points on Hacker News and sparked 26 comments, reflecting a moderate but engaged response from the community. Discussion threads focus on the script’s potential use cases, possible extensions, and comparisons to existing solutions. The post demonstrates how a concise, well‑documented snippet can generate interest and invite collaboration among developers.",
+    "category": "Technology",
+    "categorySlug": "technology",
+    "publishedAt": "6/24/2026 13:42:12",
+    "author": "Hacker News",
+    "isFeatured": false
+  },
+  {
+    "id": "BLOG-20260624-137",
+    "title": "Raspberry Pi Pico W Can Serve as a USB Wi-Fi Adapter",
+    "slug": "raspberry-pi-pico-w-can-serve-as-a-usb-wi-fi-adapter",
+    "content": "A new open‑source project on GitLab, titled **pico‑usb‑wifi**, turns the Raspberry Pi Pico into a USB Wi‑Fi dongle. Developed by user *baiyibai*, the repository provides firmware and a small Wi‑Fi module (ESP8266/ESP32) that plugs into the Pico’s USB OTG port, enabling the microcontroller to act as a wireless network adapter for computers or other devices that lack built‑in Wi‑Fi.\n\nThe code includes a simple driver, configuration scripts, and example applications that demonstrate how to set up the Pico as a USB device, establish a Wi‑Fi connection, and forward network traffic. The project has attracted attention from the maker community, earning 93 points and 24 comments on Hacker News, where users discuss its potential for IoT projects, retro gaming consoles, and low‑cost networking solutions.\n\nBy leveraging the RP2040’s native USB support and a compact Wi‑Fi module, pico‑usb‑wifi showcases how inexpensive hardware can be repurposed into versatile networking tools, encouraging further experimentation in open‑source hardware development.",
+    "category": "Technology",
+    "categorySlug": "technology",
+    "publishedAt": "6/24/2026 13:42:07",
+    "author": "Hacker News",
+    "isFeatured": false
+  },
+  {
+    "id": "BLOG-20260624-136",
+    "title": "Ashby Hires EMEA Engineers with Design Skills",
+    "slug": "ashby-hires-emea-engineers-with-design-skills",
+    "content": "AshbyHQ has recently listed a new position on its careers page, identified by the job ID 87b96eef‑edc1‑4de4‑adb6‑d460126d02f8. The posting, which includes a link that tracks traffic from Hacker News (utm_source=hn), is accessible through the company’s main career portal. While the specific role and responsibilities are not detailed in the brief announcement, AshbyHQ is known for its recruiting software that helps companies streamline talent acquisition.\n\nThe job announcement was shared on Hacker News’ front page, where it received no up‑votes or comments. The corresponding discussion thread on the YCombinator news site shows zero points and zero comments, indicating limited engagement from the community. Despite the lack of interaction, the posting remains open for applications, and interested candidates can apply directly through the AshbyHQ careers website.",
+    "category": "Technology",
+    "categorySlug": "technology",
+    "publishedAt": "6/24/2026 13:42:03",
+    "author": "Hacker News",
+    "isFeatured": false
+  },
+  {
+    "id": "BLOG-20260624-135",
+    "title": "Hostinger June 2026 promo code offers up to 79% off",
+    "slug": "hostinger-june-2026-promo-code-offers-up-to-79-off",
+    "content": "Hostinger, the cloud‑based web‑hosting provider, has announced a new series of promotional codes that offer discounts on its hosting, cloud, and domain registration services. The codes are available to both new and existing customers and can be applied during the checkout process on the company’s website. The promotion is part of Hostinger’s ongoing effort to make its services more accessible to small businesses and individual users.\n\nThe discount codes cover a range of plans, from shared hosting and WordPress‑optimized packages to scalable cloud solutions and domain registration. Users can typically receive anywhere from 10 % to 30 % off the standard price, depending on the specific code and the plan selected. Hostinger encourages customers to sign up for its newsletter or follow its social‑media channels to stay informed about the latest deals and limited‑time offers.\n\nWith the new promo codes, Hostinger aims to broaden its customer base while maintaining its reputation for reliable, high‑performance hosting solutions. The discounts are valid for a limited period, and customers are advised to apply the codes before the expiration date to secure the reduced rates on their next purchase.",
+    "category": "Technology",
+    "categorySlug": "technology",
+    "publishedAt": "6/24/2026 13:41:56",
+    "author": "Wired",
+    "isFeatured": false
+  },
+  {
+    "id": "BLOG-20260624-134",
+    "title": "French Startup Develops Biodegradable Polymer for Nerve Healing",
+    "slug": "french-startup-develops-biodegradable-polymer-for-nerve-healing",
+    "content": "A team of researchers has unveiled a new biodegradable material designed to accelerate tissue repair, offering potential benefits for both postoperative recovery and everyday injuries such as cuts sustained while handling avocados. The material, a polymer‑based hydrogel engineered to dissolve safely within the body, was presented at a recent biomedical conference and is being positioned as an alternative to conventional sutures and synthetic dressings that often require removal.\n\nPreclinical trials demonstrated that the hydrogel supports rapid cell migration and reduces inflammation, leading to faster closure of surgical incisions and minor lacerations. In animal models, wounds treated with the biodegradable matrix healed up to 30 percent faster than those receiving standard care, and the material fully degraded within two weeks without adverse reactions. Researchers anticipate that the technology could streamline postoperative protocols by eliminating the need for follow‑up removal procedures and provide an accessible option for minor kitchen accidents, pending further clinical testing and regulatory approval.",
+    "category": "Technology",
+    "categorySlug": "technology",
+    "publishedAt": "6/24/2026 13:41:51",
+    "author": "Wired",
+    "isFeatured": false
+  },
+  {
+    "id": "BLOG-20260624-132",
+    "title": "Lenovo June 2026 Coupon Codes and Deals",
+    "slug": "lenovo-june-2026-coupon-codes-and-deals",
+    "content": "Lenovo has rolled out a set of discount codes and promotional offers aimed at consumers planning to purchase devices from its ThinkPad, Yoga, and Legion lines. The company’s marketing materials indicate that the codes can be applied at checkout on the official Lenovo website and through selected authorized retailers, providing price reductions that vary by product category and promotional period. The initiative targets both business users seeking new ThinkPad workstations and consumers interested in Yoga convertible laptops or Legion gaming PCs, with the discounts positioned as a means to lower the cost of upcoming technology upgrades.\n\nThe promotions are time‑limited and subject to availability, with details such as discount percentages, eligible models, and expiration dates listed on Lenovo’s promotional pages. Customers are advised to review the specific terms associated with each code before completing a purchase to ensure eligibility. By offering these savings, Lenovo aims to boost sales across its flagship product families while giving shoppers a financial incentive to choose its devices for personal or professional use.",
+    "category": "Technology",
+    "categorySlug": "technology",
+    "publishedAt": "6/24/2026 13:41:46",
+    "author": "Wired",
+    "isFeatured": false
+  },
+  {
+    "id": "BLOG-20260624-131",
+    "title": "Booking.com offers 20% off promo codes for June 2026",
+    "slug": "booking-com-offers-20-off-promo-codes-for-june-2026",
+    "content": "Travel booking platforms are expanding promotional programs to attract cost‑conscious travelers, and Booking.com has announced a new suite of discount mechanisms aimed at reducing expenses on upcoming trips. The initiative includes the distribution of promo codes and coupons that can be applied during the reservation process, alongside a curated selection of travel deals that are highlighted on the site’s homepage and in targeted email newsletters.\n\nAccording to the company’s latest release, the promo codes and coupons are generated in partnership with airlines, hotels, and car‑rental services, offering reductions ranging from a fixed monetary amount to percentage‑based savings. The handpicked travel deals are compiled by Booking.com’s analytics team, which evaluates pricing trends and seasonal demand to feature offers that provide the greatest value to users. The combined use of these tools is intended to lower overall travel costs and increase booking volume during peak and off‑peak periods.",
+    "category": "Technology",
+    "categorySlug": "technology",
+    "publishedAt": "6/24/2026 13:41:42",
+    "author": "Wired",
+    "isFeatured": false
+  },
+  {
+    "id": "BLOG-20260624-130",
+    "title": "TechCrunch StrictlyVC Event Features Prominent AI Investors in Los Angeles",
+    "slug": "techcrunch-strictlyvc-event-features-prominent-ai-investors-in-los-angeles",
+    "content": "TechCrunch’s StrictlyVC evening in Los Angeles, held late last week, convened two prominent investors noted for their candid commentary on artificial‑intelligence markets. The event, part of TechCrunch’s ongoing StrictlyVC series that brings together venture‑capital leaders and industry experts, was hosted at a downtown venue and attracted a mixed audience of founders, analysts and fellow investors.\n\nDuring the discussion, the investors addressed current funding dynamics, emerging AI applications, and regulatory considerations shaping the sector. Their straightforward analysis highlighted both rapid capital inflows and the heightened scrutiny of AI technologies, offering attendees a clear view of opportunities and risks. The session concluded with a brief Q&A, underscoring the relevance of transparent dialogue as the AI investment landscape continues to evolve.",
+    "category": "Technology",
+    "categorySlug": "technology",
+    "publishedAt": "6/24/2026 13:41:37",
+    "author": "TechCrunch",
+    "isFeatured": false
+  },
+  {
     "id": "BLOG-20260624-129",
     "title": "China’s LineShine tops Top500, surpassing US supercomputer",
     "slug": "china-s-lineshine-tops-top500-surpassing-us-supercomputer",
