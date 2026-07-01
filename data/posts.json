@@ -1,5 +1,38 @@
 [
   {
+    "id": "BLOG-20260701-196",
+    "title": "NASA Audit Raises Concerns Over Boeing Starliner",
+    "slug": "nasa-audit-raises-concerns-over-boeing-starliner",
+    "content": "NASA has announced that it will need to procure additional astronaut transportation services to the International Space Station (ISS) by 2030, according to a newly released audit. The report highlights ongoing challenges with Boeing’s Starliner spacecraft, which has faced repeated delays and technical setbacks in its development. The findings underscore the agency’s reliance on commercial partners to maintain continuous U.S. crew access to the ISS as it transitions toward long-term lunar exploration under the Artemis program.  \n\nThe audit identifies Starliner’s unresolved issues—ranging from propulsion system flaws to software anomalies—as a critical factor limiting its current capacity to meet NASA’s crew rotation needs. These delays have forced NASA to extend its partnership with SpaceX’s Crew Dragon, which has consistently delivered astronauts to the ISS since 2020. The report recommends increased investment in alternative transportation options to mitigate risks associated with over-reliance on a single provider. NASA officials emphasized that the audit aims to ensure uninterrupted ISS operations while balancing the agency’s focus on deep-space missions.  \n\nAs NASA prepares for the next decade of space exploration, the audit signals a strategic shift toward diversifying its commercial partnerships. While Boeing continues to work on certifying Starliner for regular crewed missions, the agency may expand contracts with SpaceX or explore new providers to meet its 2030 goals. The findings also reflect broader challenges in managing complex aerospace projects amid evolving technological and regulatory demands, shaping the future of U.S. human spaceflight capabilities.",
+    "category": "Space",
+    "categorySlug": "space",
+    "publishedAt": "7/1/2026 17:01:51",
+    "author": "Space.com",
+    "isFeatured": false
+  },
+  {
+    "id": "BLOG-20260701-195",
+    "title": "Solar Flare Causes Radio Blackouts",
+    "slug": "solar-flare-causes-radio-blackouts",
+    "content": "A powerful X1.1-class solar flare erupted from the Sun, accompanied by a significant coronal mass ejection, marking one of the most intense solar events recorded in recent months. The flare, which falls within the highest classification of solar activity, was detected by space weather monitoring networks and prompted immediate evaluation of potential effects on Earth’s orbital and ground-based systems. Solar flares of this magnitude emit concentrated bursts of electromagnetic radiation, while the associated coronal mass ejection releases billions of tons of ionized plasma into the interplanetary medium.\n\nThe ejected material is projected to travel toward Earth over the next several days, with arrival timing dependent on solar wind speed and interplanetary magnetic conditions. Space weather agencies are continuously tracking the event to assess possible disruptions to satellite communications, navigation systems, and high-frequency radio transmissions.",
+    "category": "Space",
+    "categorySlug": "space",
+    "publishedAt": "7/1/2026 17:01:44",
+    "author": "Space.com",
+    "isFeatured": false
+  },
+  {
+    "id": "BLOG-20260701-194",
+    "title": "Taylor Swift wedding rumored to include multi‑day celebration at Madison Square Garden",
+    "slug": "taylor-swift-wedding-rumored-to-include-multi-day-celebration-at-madison-square",
+    "content": "A high‑profile couple has kept details of their forthcoming wedding under wraps, yet media outlets and social‑media chatter suggest the ceremony may unfold over several days at Madison Square Garden.  Sources familiar with the planning indicate that the venue, known for hosting major sporting and entertainment events, has been booked for a multi‑day celebration that could include a pre‑wedding gala, the main ceremony, and a post‑wedding reception.\n\nThe choice of Madison Square Garden—a landmark arena in New York City—has fueled speculation about the scale and public nature of the event.  While the couple has not issued an official statement, industry insiders confirm that the venue’s capacity and logistical capabilities have been leveraged to accommodate a large guest list and elaborate production elements.  The arrangement aligns with recent trends among celebrity couples to host lavish, multi‑day wedding festivities in iconic venues.\n\nAlthough no formal announcement has been made, the emerging details point to a significant public affair that will likely attract considerable media attention.  The couple’s decision to remain private about the specifics underscores a desire for control over the narrative, even as the buzz surrounding Madison Square Garden’s role in the celebration grows.",
+    "category": "Entertainment",
+    "categorySlug": "entertainment",
+    "publishedAt": "7/1/2026 17:01:37",
+    "author": "BBC Entertainment",
+    "isFeatured": false
+  },
+  {
     "id": "BLOG-20260701-193",
     "title": "Chris Brown Ordered to Pay $13m in Dog Attack Case",
     "slug": "chris-brown-ordered-to-pay-13m-in-dog-attack-case",
@@ -172,17 +205,6 @@
     "category": "Health",
     "categorySlug": "health",
     "publishedAt": "7/1/2026 16:43:08",
-    "author": "Medical Xpress",
-    "isFeatured": false
-  },
-  {
-    "id": "BLOG-20260701-167",
-    "title": "Scientists Uncover Bacteria's Cancer Therapy Secrets",
-    "slug": "scientists-uncover-bacteria-s-cancer-therapy-secrets",
-    "content": "<think>\nOkay, let's tackle this query. The user wants a news article based on the provided content. First, I need to understand the key points. The main subject is a research team from the University of Warwick and Monash University solving a long-standing puzzle about how bacteria produce multiple versions of cancer therapies. The implication is that this could speed up new cancer treatments.\n\nThe user specified a structure: 2-3 paragraphs with an intro, key details, context, and conclusion. The tone should be factual, neutral, and professional. No opinions or filler. I need to start with a concise intro, then elaborate on the research, methods, and implications.\n\nFirst paragraph: Introduce the universities involved, the problem solved, and the significance. Mention the breakthrough and its potential impact on cancer treatments. \n\nSecond paragraph: Go into more detail about the research. What did they discover? How did they do it? Maybe mention the enzymes or mechanisms involved. Also, include the collaboration between institutions and the role of funding or techniques used. \n\nThird paragraph: Discuss the implications. How does this advance drug development? Maybe talk about reducing trial and error, enabling more targeted therapies. Conclude with the researchers' statements or future steps.\n\nI need to check if there are any technical terms that need simplifying. Terms like \"ribosomally synthesized and post-translationally modified peptides (RiPPs)\" might be too jargon-heavy. Should I explain them briefly? The user didn't mention it, but since it's a news article, maybe a short explanation would help.\n\nWait, the original content doesn't mention RiPPs. The user's example response does, but maybe that's part of the provided content. Let me check the original query again. The user provided the content: the researchers solved how bacteria create multiple versions of powerful cancer therapies. The example response includes RiPPs. So I need to include that if it's part of the given info. Wait, no, the user's initial input is just the first sentence. The example response adds details not in the original prompt. Hmm, maybe the user expects me to generate the article based on the given content, but the example includes more details. Wait, no, the user provided the content as the first sentence and the example is the response. So the actual content to base the article on is the first sentence. But the example response expands with more details. Maybe the user expects me to generate a similar article, assuming that the example is the correct approach. But the user's actual input is the first sentence. Wait, the user's message starts with \"A team of researchers...\" and then the example response is the assistant's previous answer. Wait, no, looking back, the user's message is the query: \"A team of researchers at the University of Warwick and Monash University has solved a puzzle that has stumped drug developers for decades: how bacteria naturally create multiple versions of powerful cancer therapies. The breakthrough could accelerate the development of new treatments for hard-to-treat cancers.\" So the user provided that content and wants a news article based on it. But the example response includes more details not in the original content. How is that possible? Maybe the example is part of the user's instruction, but in this case, the user is asking me to write a new article based on the provided content. Wait, no, the user is providing the content as the first sentence, and the example response is the assistant's previous output. Now, the user is giving me a new query with the same structure. Wait, maybe the user is providing an example of how the previous response was generated. So in this case, the user wants me to generate a news article based on their provided content. But the content given is only the first sentence. However, in the example, the assistant added more details. That suggests that perhaps the user expects me to generate a plausible article with additional relevant information, even if not provided. But the user's instruction says to base the article on the provided content. So perhaps the user expects me to use the given content as the basis, but the example shows that the assistant added more. Maybe the user is testing if I can infer the necessary details. Alternatively, maybe the user provided the content in the first message, and the example is the assistant's response. But in this case, the user is asking me to write a new article based on the content they provided. So I need to make sure that the article is based solely on the given content. However, the given content is brief. To create a full article, I need to add context and details that are commonly known or plausible. For example, mentioning that the research was published in a journal, or that the team used specific techniques. But since the user didn't provide that, I have to be careful not to add false information. Alternatively, maybe the user expects a generic structure where the first paragraph introduces the breakthrough, the second explains the methods and findings, and the third discusses implications. So I need to structure",
-    "category": "Health",
-    "categorySlug": "health",
-    "publishedAt": "7/1/2026 16:42:56",
     "author": "Medical Xpress",
     "isFeatured": false
   },
